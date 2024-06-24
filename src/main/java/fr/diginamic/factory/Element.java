@@ -2,7 +2,7 @@ package fr.diginamic.factory;
 
 import fr.diginamic.factory.Enums.Unite;
 
-public class Element {
+public abstract class Element { // on met cette classe en abstract pour qu'on ne puisse pas instancier Element et qu'on instancie que les classe filles
 	
 	private String nom;
 	private double valeur;
