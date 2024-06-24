@@ -26,10 +26,27 @@ public class Reservation {
 	public Reservation() {
 		
 	}
+	
 
+	/** Constructeur
+	 * @param date
+	 */
 	public Reservation(LocalDateTime date) {
 		super();
 		this.date = date;
+	}
+
+
+	/** Constructeur
+	 * @param date
+	 * @param nbPlaces
+	 * @param total
+	 */
+	public Reservation(LocalDateTime date, int nbPlaces, double total) {
+		super();
+		this.date = date;
+		this.nbPlaces = nbPlaces;
+		this.total = total;
 	}
 
 	/** Getter

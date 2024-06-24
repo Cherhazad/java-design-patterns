@@ -26,9 +26,23 @@ public class TypeReservation {
 	public TypeReservation() {
 		super();
 	}
-
+	
 	public TypeReservation(String type, double montant, double reductionPourcent) {
 		super();
+		this.type = type;
+		this.montant = montant;
+		this.reductionPourcent = reductionPourcent;
+	}
+
+	/** Constructeur
+	 * @param id
+	 * @param type
+	 * @param montant
+	 * @param reductionPourcent
+	 */
+	public TypeReservation(Long id, String type, double montant, double reductionPourcent) {
+		super();
+		this.id = id;
 		this.type = type;
 		this.montant = montant;
 		this.reductionPourcent = reductionPourcent;
