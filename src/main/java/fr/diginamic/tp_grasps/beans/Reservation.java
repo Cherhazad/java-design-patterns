@@ -31,7 +31,7 @@ public class Reservation {
 	/** Constructeur
 	 * @param date
 	 */
-	public Reservation(LocalDateTime date) {
+	Reservation(LocalDateTime date) {
 		super();
 		this.date = date;
 	}

@@ -7,6 +7,7 @@ import fr.diginamic.Utils.CalculMontantReservation;
 import fr.diginamic.Utils.DateFormatter;
 import fr.diginamic.tp_grasps.beans.Client;
 import fr.diginamic.tp_grasps.beans.Reservation;
+import fr.diginamic.tp_grasps.beans.ReservationFactory;
 import fr.diginamic.tp_grasps.beans.TypeReservation;
 import fr.diginamic.tp_grasps.daos.ClientDao;
 import fr.diginamic.tp_grasps.daos.TypeReservationDao;
@@ -45,7 +46,8 @@ public class ReservationController {
 		TypeReservation type = typeReservationDao.extraireTypeReservation(typeReservation);
 		
 		// 5) Création de la réservation
-		Reservation reservation = new Reservation(dateReservation, nbPlaces, nbPlaces);
+		Reservation reservation = ReservationFactory.getInstance(client, dateReservation, nbPlaces);
+	
 		
 		// 6) Ajout de la réservation au client
 		client.getReservations().add(reservation);
