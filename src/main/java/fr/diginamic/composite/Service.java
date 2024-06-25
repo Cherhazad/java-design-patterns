@@ -26,6 +26,12 @@ public class Service implements IElement {
         }
         return salaireTotal;
     }
+	
+	//Seconde façon de calculer le salaire
+//	public double calculerSalaire() {
+//		return  elements.stream().mapToDouble(e -> e.calculerSalaire()).sum();
+//        
+//    }
 
 	/**
 	 * Getter pour nom

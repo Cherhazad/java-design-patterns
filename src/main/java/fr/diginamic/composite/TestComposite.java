@@ -19,9 +19,9 @@ public class TestComposite {
 		Employe employe6 = new Employe("MARTIN", "Paul", 3500);
 		
 		
-		serviceDSIN.setElement(new ArrayList<IElement>(Arrays.asList(employe1, employe2)));
 		serviceBigData.setElement(new ArrayList<IElement>(Arrays.asList(employe3, employe4)));
 		serviceJavaDev.setElement(new ArrayList<IElement>(Arrays.asList(employe5, employe6)));
+		serviceDSIN.setElement(new ArrayList<IElement>(Arrays.asList(employe1, employe2, serviceBigData, serviceJavaDev)));
 		
 		
 		double salaireDSIN = serviceDSIN.calculerSalaire();
