@@ -26,10 +26,6 @@ public class Service implements IElement {
         }
         return salaireTotal;
     }
-	
-	public void ajouterElement(IElement element) {
-		elements.add(element);
-	}
 
 	/**
 	 * Getter pour nom
