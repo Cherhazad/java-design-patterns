@@ -1,7 +1,6 @@
 package fr.diginamic.builder;
 
-import java.util.ArrayList;
-import java.util.List;
+import fr.diginamic.factory.Enums.Unite;
 
 public class ProduitBuilder {
 
@@ -11,20 +10,13 @@ public class ProduitBuilder {
 	 * Constructeur
 	 * 
 	 */
-	public ProduitBuilder() {
-		this.produit = new Produit();
-		this.produit.setIngredients(new ArrayList<>());
-		this.produit.setAdditif(new ArrayList<>());
-		this.produit.setAllergenes(new ArrayList<>());	
-	}
+	public ProduitBuilder(String nom) { 
+		produit = new Produit(nom);
 
-	public ProduitBuilder appendNom(String nom) {
-		produit.setNom(nom);
-		return this;
 	}
 	
-	public ProduitBuilder appendCategorie(Categorie categorie) {
-		produit.setCategorie(categorie);
+	public ProduitBuilder appendCategorie(String nom) {
+		produit.setCategorie(new Categorie(nom));
 		return this;
 	}
 	
@@ -33,41 +25,50 @@ public class ProduitBuilder {
 		return this;
 	}
 	
-	public ProduitBuilder appendMarque(Marque nomMarque) {
-		produit.setMarque(nomMarque);
+	public ProduitBuilder appendMarque(String nom) {
+		produit.setMarque(new Marque(nom));
 		return this;
 	}
 	
-	public ProduitBuilder appendUnIngredient(Ingredient ingredient) {
-		produit.getIngredients().add(ingredient);
+	
+	public ProduitBuilder appendIngredient(String nom, double valeur, Unite unite) throws ProduitException {
+		if (valeur < 0) {
+			throw new ProduitException("La quantité d'un ingrédient doit être strictement positive.");
+		}
+		produit.getIngredients().add(new Ingredient(nom, valeur, unite));
 		return this;
 	}
 	
-	public ProduitBuilder appendDesIngredients(List<Ingredient> ingredients) {
-		produit.setIngredients(ingredients);
+	public ProduitBuilder appendAllergene(String nom, double valeur, Unite unite) throws ProduitException {
+		
+		if (valeur < 0) {
+			throw new ProduitException("La quantité d'un allergène doit être strictement positive.");
+		}
+		
+		produit.getAllergenes().add(new Allergene(nom, valeur, unite));
 		return this;
 	}
 	
-	public ProduitBuilder appendUnAllergene(Allergene allergene) {
-		produit.getAllergenes().add(allergene);
+	public ProduitBuilder appendAdditif(String nom, double valeur, Unite unite) throws ProduitException {
+		
+		if (valeur < 0) {
+			throw new ProduitException("La quantité d'un additif doit être strictement positive.");
+		}
+		produit.getAdditif().add(new Additif(nom, valeur, unite));
 		return this;
 	}
 	
-	public ProduitBuilder appendAllergenes(List<Allergene> allergenes) {
-		produit.setAllergenes(allergenes);
-		return this;
-	}
-	
-	public ProduitBuilder appendUnAdditif(Additif additif) {
-		produit.getAdditif().add(additif);
-		return this;
-	}
-	
-	public ProduitBuilder appendAdditifs(List<Additif> additifs) {
-		return this.appendAdditifs(additifs);
-	}
-	
-	public Produit assemble() {
+	public Produit assemble() throws ProduitException {
+		
+		if (produit.getCategorie() == null) {
+			throw new ProduitException("La catégorie est obligatoire.");
+		}
+		if (produit.getMarque() == null) {
+			throw new ProduitException("La marque est obligatoire.");
+		}
+		if (produit.getIngredients().size() == 0) {
+			throw new ProduitException("La catégorie est obligatoire.");
+		}
 		return produit;
 	}
 

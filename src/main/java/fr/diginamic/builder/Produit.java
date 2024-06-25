@@ -1,5 +1,6 @@
 package fr.diginamic.builder;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Produit {
@@ -9,9 +10,9 @@ public class Produit {
 	private Marque marque;
 	private Categorie categorie;
 
-	private List<Ingredient> ingredients;
-	private List<Allergene> allergenes;
-	private List<Additif> additif;
+	private List<Ingredient> ingredients = new ArrayList<>();
+	private List<Allergene> allergenes = new ArrayList<>();
+	private List<Additif> additif = new ArrayList<>();
 
 	
 	
@@ -34,16 +35,8 @@ public class Produit {
 	 * @param additif
 	 */
 
-	Produit(String nom, String grade, Marque marque, Categorie categorie, List<Ingredient> ingredients,
-			List<Allergene> allergenes, List<Additif> additif) {
-		super();
+	Produit(String nom) {
 		this.nom = nom;
-		this.grade = grade;
-		this.marque = marque;
-		this.categorie = categorie;
-		this.ingredients = ingredients;
-		this.allergenes = allergenes;
-		this.additif = additif;
 	}
 
 	/**
