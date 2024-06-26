@@ -2,7 +2,10 @@ package fr.diginamic.factory;
 
 import fr.diginamic.factory.Enums.Unite;
 
-public abstract class Element { // on met cette classe en abstract pour qu'on ne puisse pas instancier Element et qu'on instancie que les classe filles
+/**
+ * Classe abstraite élément non instanciable car non pertinent d'associer un élément à un produit.
+ */
+public abstract class Element {
 	
 	private String nom;
 	private double valeur;

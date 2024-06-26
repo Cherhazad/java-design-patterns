@@ -1,9 +1,10 @@
 package fr.diginamic.factory;
 
 import fr.diginamic.factory.Enums.TypeElement;
+import fr.diginamic.factory.Enums.Unite;
 
-public interface IElementFactory { //générer interface avec la méthode en faisant clic droit sur ElementFactory
+public interface IElementFactory {
 
-	Element getInstanceElement(TypeElement typeElement);
+	Element getInstance(TypeElement typeElement, String nom, double valeur, Unite unite);
 	
 }

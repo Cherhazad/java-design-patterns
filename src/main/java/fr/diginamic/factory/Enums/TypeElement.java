@@ -20,15 +20,5 @@ public enum TypeElement {
 	 */
 	public String getTypeElement() {
 		return typeElement;
-	}
-
-	/** Setter pour typeElement
-	 * @param typeElement the typeElement to set
-	 */
-	public void setTypeElement(String typeElement) {
-		this.typeElement = typeElement;
-	}
-	
-	
-
+	} 
 }

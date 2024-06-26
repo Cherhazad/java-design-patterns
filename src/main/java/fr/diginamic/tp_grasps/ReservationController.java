@@ -1,10 +1,7 @@
 package fr.diginamic.tp_grasps;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
-import fr.diginamic.Utils.CalculMontantReservation;
-import fr.diginamic.Utils.DateFormatter;
 import fr.diginamic.Utils.DateUtils;
 import fr.diginamic.tp_grasps.beans.Client;
 import fr.diginamic.tp_grasps.beans.Reservation;
