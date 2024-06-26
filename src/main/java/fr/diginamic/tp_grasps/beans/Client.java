@@ -12,61 +12,54 @@ public class Client {
 
 	@Id
 	private String identifiantClient;
-	
-	private boolean premium;
-	
+
 	@OneToMany(mappedBy = "client")
 	private List<Reservation> reservations = new ArrayList<>();
-	
-	public Client() {
-		
-	}
 
-	public Client(String identifiantClient, boolean premium) {
+	public Client(String identifiantClient) {
 		super();
 		this.identifiantClient = identifiantClient;
-		this.premium = premium;
+
 	}
 
-	/** Getter
+	public double applyReduction(double montant, double pourcentageReduction) {
+		return montant;
+	}
+
+	/**
+	 * Getter
+	 * 
 	 * @return the identifiantClient
 	 */
 	public String getIdentifiantClient() {
 		return identifiantClient;
 	}
 
-	/** Setter
+	/**
+	 * Setter
+	 * 
 	 * @param identifiantClient the identifiantClient to set
 	 */
 	public void setIdentifiantClient(String identifiantClient) {
 		this.identifiantClient = identifiantClient;
 	}
 
-	/** Getter
-	 * @return the premium
-	 */
-	public boolean isPremium() {
-		return premium;
-	}
-
-	/** Setter
-	 * @param premium the premium to set
-	 */
-	public void setPremium(boolean premium) {
-		this.premium = premium;
-	}
-
-	/** Getter
+	/**
+	 * Getter
+	 * 
 	 * @return the reservations
 	 */
 	public List<Reservation> getReservations() {
 		return reservations;
 	}
 
-	/** Setter
+	/**
+	 * Setter
+	 * 
 	 * @param reservations the reservations to set
 	 */
 	public void setReservations(List<Reservation> reservations) {
 		this.reservations = reservations;
 	}
+
 }

@@ -6,9 +6,9 @@ import java.time.format.DateTimeFormatter;
 /** Classe utilitaire fournissant des services de conversion entre dates et chaînes de caractères
  * 
  */
-public final class DateFormatter { //bonne pratique de mettre les classes utiliataires en static
+public final class DateUtils { // bonne pratique de mettre les classes utilitaires en final car pas de sens qu'une classe utilitaire ait des classes filles
 	
-	/** formatter */
+	/** FORMAT_STANDARD : format d'affiche standard des dates heures dans l'application */
 	private static final DateTimeFormatter FORMAT_STANDARD = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 	
 	/** Transforme une date au format String en {@link LocalDateTime}

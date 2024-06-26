@@ -9,96 +9,95 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Reservation {
-	
+
 	@Id
 	private Long id;
-	
-	private LocalDateTime date;
-	
-	private int nbPlaces;
-	
-	private double total;
-	
-	@ManyToOne
-	@JoinColumn(name="ID_CLIENT")
-	private Client client;
-	
-	public Reservation() {
-		
-	}
-	
 
-	/** Constructeur
+	private LocalDateTime date;
+
+	private int nbPlaces;
+
+	private double total;
+
+	@ManyToOne
+	@JoinColumn(name = "ID_CLIENT")
+	private Client client;
+
+	/**
+	 * Constructeur : visibilité package, utilisez la factory.
+	 * 
 	 * @param date
 	 */
 	Reservation(LocalDateTime date) {
-		super();
 		this.date = date;
 	}
 
-
-	/** Constructeur
-	 * @param date
-	 * @param nbPlaces
-	 * @param total
-	 */
-	public Reservation(LocalDateTime date, int nbPlaces, double total) {
-		super();
-		this.date = date;
-		this.nbPlaces = nbPlaces;
-		this.total = total;
-	}
-
-	/** Getter
+	/**
+	 * Getter
+	 * 
 	 * @return the date
 	 */
 	public LocalDateTime getDate() {
 		return date;
 	}
 
-	/** Setter
+	/**
+	 * Setter
+	 * 
 	 * @param date the date to set
 	 */
 	public void setDate(LocalDateTime date) {
 		this.date = date;
 	}
 
-	/** Getter
+	/**
+	 * Getter
+	 * 
 	 * @return the nbPlaces
 	 */
 	public int getNbPlaces() {
 		return nbPlaces;
 	}
 
-	/** Setter
+	/**
+	 * Setter
+	 * 
 	 * @param nbPlaces the nbPlaces to set
 	 */
 	public void setNbPlaces(int nbPlaces) {
 		this.nbPlaces = nbPlaces;
 	}
 
-	/** Getter
+	/**
+	 * Getter
+	 * 
 	 * @return the total
 	 */
 	public double getTotal() {
 		return total;
 	}
 
-	/** Setter
+	/**
+	 * Setter
+	 * 
 	 * @param total the total to set
 	 */
 	public void setTotal(double total) {
 		this.total = total;
 	}
 
-	/** Getter
+	/**
+	 * Getter
+	 * 
 	 * @return the client
 	 */
 	public Client getClient() {
 		return client;
 	}
 
-	/** Setter
+	/**
+	 * Setter
+	 * 
 	 * @param client the client to set
 	 */
 	public void setClient(Client client) {

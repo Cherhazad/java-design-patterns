@@ -5,6 +5,7 @@ import java.time.format.DateTimeFormatter;
 
 import fr.diginamic.Utils.CalculMontantReservation;
 import fr.diginamic.Utils.DateFormatter;
+import fr.diginamic.Utils.DateUtils;
 import fr.diginamic.tp_grasps.beans.Client;
 import fr.diginamic.tp_grasps.beans.Reservation;
 import fr.diginamic.tp_grasps.beans.ReservationFactory;
@@ -37,7 +38,7 @@ public class ReservationController {
 		int nbPlaces = params.getNbPlaces();
 		
 		// 2) Conversion de la date de réservation en LocalDateTime
-		LocalDateTime dateReservation = DateFormatter.toDate(dateReservationStr);
+		LocalDateTime dateReservation = DateUtils.toDate(dateReservationStr);
 		
 		// 3) Extraction de la base de données des informations client
 		Client client = clientDao.extraireClient(identifiantClient);
@@ -46,19 +47,11 @@ public class ReservationController {
 		TypeReservation type = typeReservationDao.extraireTypeReservation(typeReservation);
 		
 		// 5) Création de la réservation
-		Reservation reservation = ReservationFactory.getInstance(client, dateReservation, nbPlaces);
+		Reservation reservation = ReservationFactory.getInstance(client, type, dateReservation, nbPlaces);
 	
 		
 		// 6) Ajout de la réservation au client
-		client.getReservations().add(reservation);
-		
-		// 7) Calcul du montant total de la réservation qui dépend:
-		//    - du nombre de places
-		//    - de la réduction qui s'applique si le client est premium ou non
-		
-		double total = CalculMontantReservation.calculerMontant(type, nbPlaces, client.isPremium());
-		reservation.setTotal(total);
-		
+		client.getReservations().add(reservation);	 
 		return reservation;
 	}
 
